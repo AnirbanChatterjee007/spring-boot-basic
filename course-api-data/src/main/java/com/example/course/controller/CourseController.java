@@ -2,6 +2,8 @@ package com.example.course.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,7 +15,10 @@ import com.example.course.service.CourseService;
 import com.example.course.topic.bo.Course;
 
 @RestController
+@RequestMapping("/api")
 public class CourseController {
+	
+	Logger log = LoggerFactory.getLogger(CourseController.class);
 
 	@Autowired
 	private CourseService courseService;
@@ -26,7 +31,8 @@ public class CourseController {
 	
 
 	@RequestMapping("/course")
-	public List<Course> getAllTopics() {
+	public List<Course> getAllCourse() {
+		log.debug("Get aall courses");
 		return courseService.getAllCourse();
 	}
 	
