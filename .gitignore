@@ -4,5 +4,6 @@
 # Package Files #
 *.jar
 *.war
+*.log
 
 
